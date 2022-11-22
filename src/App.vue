@@ -1,26 +1,76 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="form-container">
+        <div class="sbp-payment-btn" @click="getLink">
+            SBP
+        </div>
+        <div class="sbp-container">
+            <sbp-quar v-if="this.link" />
+            <sbp-banks-container />
+
+            <div class="amount-block">
+                <div class="amount-title">
+                    Сумма к оплате
+                </div>
+                <div class="totalAmount">
+                    10 руб
+                </div>
+            </div>
+            <div class="button-container">
+                <sbp-button>
+                    Оплатить
+                </sbp-button>
+            </div>
+
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    data() {
+        return {
+            link: '',
+            size: 200,
+        }
+    },
+    methods: {
+        getLink() {
+            fetch('http://localhost:3000/links')
+                .then(res => res.json())
+                .then(json => {
+                    console.log('IT', json[0].link)
+                    this.link = json[0].link;
+                })
+        }
+    },
+
 }
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount-block {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
 }
 </style>
