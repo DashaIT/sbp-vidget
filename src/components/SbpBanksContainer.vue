@@ -1,16 +1,24 @@
 <template>
-    <sbp-button class="sbp__pick-bank _placeholder">
-        Выбрать банк для открытия QR
-    </sbp-button>
-    <div class="sbp__banks-overlay">
-        <sbp-banks-content />
+    <div class="sbp__banks container__inner">
+        <sbp-button class="sbp__pick-bank _placeholder">
+            Выбрать банк для открытия QR
+        </sbp-button>
+        <div class="sbp__banks-overlay">
+            <sbp-banks-content :banks="banks" />
+        </div>
     </div>
+
 </template>
 
 <script>
 import SbpBanksContent from '@/components/SbpBanksContent';
 export default {
-    components: { SbpBanksContent }
+    components: { SbpBanksContent },
+    props: {
+        banks: {
+            type: Array
+        }
+    }
 }
 </script>
 
@@ -24,7 +32,7 @@ export default {
     height: 24px;
     margin-top: -12px;
     background-color: #E6DFF8;
-    background-image: url(/static/common/img/enigma/purple-arrow-icon.svg);
+    /* background-image: url(/static/common/img/enigma/purple-arrow-icon.svg); */
     background-repeat: no-repeat;
     border-radius: 50%;
     background-position: 50% 50%;

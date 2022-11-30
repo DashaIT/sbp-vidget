@@ -3,5 +3,12 @@
         {
             "link": "https://dashait.github.io/pulse/"
         }
+    ],
+    "banks": [
+        {
+            "bankName": "SberBank",
+            "logoUrl": "https//:wikipedia.com/images",
+            "schema": "ghgjgj5-885858-jdkkdj"
+        }
     ]
 }

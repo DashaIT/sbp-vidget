@@ -1,6 +1,6 @@
 <template>
     <button type="button">
-        <scope></scope>
+        <slot></slot>
     </button>
 </template>
 
@@ -23,11 +23,12 @@ export default {
     margin-bottom: 20px;
 }
 
+.payment-method__button {
+    margin-bottom: 30px;
+}
+
 button {
-    width: 100px;
-    height: 30px;
     text-align: center;
-    background-color: rgb(22, 4, 62);
     color: #fff;
     border-radius: 20px;
 }

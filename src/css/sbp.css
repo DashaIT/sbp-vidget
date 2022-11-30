@@ -1,0 +1,765 @@
+::-webkit-scrollbar {
+    width: 0;
+}
+.form.form--payment {
+    top: -10px
+}
+
+.form__body--payment {
+    padding-top: 32px;
+}
+
+._disabled-scroll {
+    height: 100vh;
+    overflow-y: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.payment-method__button--sbp {
+    background-image: url("https://dev3.best2pay.net/static/common/img/enigma/sbp-logo-text.svg");
+    background-repeat: no-repeat;
+    background-size: 60px 32px;
+    background-position: center center;
+}
+
+.disabled-scroll {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.sbp {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: auto;
+}
+
+#getQr {
+    max-width:unset;
+    -webkit-appearance: none;
+}
+
+.sbp__qr {
+    position: relative;
+    /* display: none; */
+}
+
+.sbp__amount {
+    width: 100%;
+    margin-top: 38px;
+}
+
+.sbp__amount .form__amount-group {
+    padding: 0;
+    margin: 0;
+}
+
+.sbp__amount .form__amount-title {
+    font-size: 14px;
+}
+
+.sbp__help {
+    display: none;
+}
+
+.sbp__loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F5F5F5;
+    z-index: 10;
+}
+
+.sbp__loader img {
+    -webkit-animation-name: loader;
+    animation-name: loader;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    pointer-events: none;
+}
+
+
+.button__wrap {
+    width: 100%;
+    flex-direction: column;
+}
+
+.button__wrap p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #B3B3B3;
+    margin: 0 auto;
+    padding-top: 48px;
+}
+
+.button__wrap--sbp {
+    margin-top: 38px;
+}
+
+.sbp__submit {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sbp__submit .text {
+    position: relative;
+    padding-right: 76px;
+}
+
+.sbp__submit .text::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: 0;
+    width: 60px;
+    height: 32px;
+    background-image: url("https://dev3.best2pay.net/static/common/img/enigma/sbp-logo-text-white.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.sbp__submit.is-loaded span {
+    color: transparent;
+}
+
+.sbp__submit.is-loaded .text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    width: 24px;
+    height: 24px;
+    background-image: url("https://dev3.best2pay.net/static/common/img/enigma/loader-white.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-animation-name: loader;
+    animation-name: loader;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    pointer-events: none;
+}
+
+.input--sbp {
+    width: 100%;
+    max-width: 100%;
+    margin: 16px auto 0;
+}
+
+.input--sbp .input__label {
+    width: auto;
+}
+
+.sbp__submit.is-loaded .sbp__icon {
+    opacity: 0;
+}
+
+.sbp__icon {
+    position: relative;
+    padding-left: 25px;
+    margin-left: 10px;
+}
+
+.sbp__icon::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 19px;
+    height: 24px;
+    background-image: url("https://dev3.best2pay.net/static/common/img/enigma/sbp-icon.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sbp__get-email {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sbp__email-result {
+    text-align: center;
+}
+#emailPlace {
+    font-weight: 600;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.checkbox__label {
+    width: auto;
+    height: auto;
+    margin-left: 16px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #806C90;
+}
+
+.checkbox__body {
+    position: relative;
+    width: 58px;
+    height: 32px;
+    background-color: #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.checkbox__body::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: #FFFFFF ;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+
+}
+
+.input--email.input--sbp {
+    transition: all 0.2s ease-in;
+}
+
+.input--email.input--sbp .input__field {
+    flex-grow: 1;
+    width: auto;
+}
+
+.input--email.input--sbp .input__label {
+    left: 40px;
+}
+
+.input--email.input--sbp.closed {
+    overflow: hidden;
+    max-height: 100px;
+    min-height: auto;
+    margin: 0;
+}
+
+.input--email.input--sbp.closed {
+    max-height: 0;
+    min-height: 0;
+}
+
+.button--email {
+    margin-bottom: 0;
+}
+
+.input--email.input--sbp.closed,
+.input--email.input--sbp.closed .input__field{
+    visibility: hidden;
+}
+
+input:checked + .checkbox__body {
+    background: #2B008E;
+}
+
+input:checked + .checkbox__body::after {
+    left: 29px;
+}
+
+.sbp-error__img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+}
+
+.sbp-error__title {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -0.185714px;
+    color: #28123A;
+}
+
+.sbp-error__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.228571px;
+    color: #463256;
+}
+
+@media (min-width: 475px) {
+    .button__wrap {
+        display: flex;
+        justify-content: center;
+    }
+
+    .input--email.input--sbp .input__label {
+        left: 100px;
+    }
+
+    .input--email.input--sbp .input__error {
+        left: 70px;
+    }
+
+
+}
+
+@media (min-width: 1023px) {
+
+    .input--sbp {
+        margin: 16px auto 0;
+        height: 64px;
+    }
+
+    .sbp__qr {
+        width: 100%;
+        min-height: 280px;
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #F5F5F5;
+    }
+
+    .sbp__qr-error {
+        width: 88px;
+        height: 88px;
+    }
+
+    .sbp__qr p {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: #B3B3B3;
+    }
+
+    .sbp__amount {
+        margin-bottom: 32px;
+    }
+
+    .sbp__amount .form__amount-group {
+        margin-top: 0;
+    }
+
+    .sbp__help {
+        position: relative;
+        display: block;
+        padding-left: 40px;
+        text-align: left;
+        max-width: 364px;
+
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.228571px;
+        color: #B3B3B3;
+    }
+
+    .sbp__help::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        background-image: url("https://dev3.best2pay.net/static/common/img/enigma/qr-icon.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .sbp__submit {
+        display: none;
+    }
+
+    .sbp__submit#getQr {
+        display: flex;
+        max-width: unset;
+    }
+
+    .sbp__email-result {
+        margin-bottom: 40px;
+    }
+
+    .sbp-error__img {
+        width: 88px;
+        height: 88px;
+        margin-bottom: 32px;
+    }
+
+    .sbp-error__title {
+        margin-bottom: 6px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .sbp-error__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+@-webkit-keyframes loader {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+/*BANKS*/
+
+.sbp__banks {
+    padding: 16px 0;
+    position: relative;
+    width: 100%;
+    max-width: 364px;
+    z-index: 9999;
+}
+
+.sbp__pick-bank {
+    /* display: none; */
+    height: 64px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 14px 50px 14px 80px;
+
+    line-height: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #28123A;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 32px -4px rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    background-image: url('https://dev3.best2pay.net/static/common/img/enigma/unknown-bank-icon.svg');
+    background-repeat: no-repeat;
+    background-position: 24px 50%;
+    text-align: left;
+}
+
+.sbp__pick-bank._placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    color: #806C90;
+}
+
+.sbp__pick-bank::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background-color: #E6DFF8;
+    background-image: url('https://dev3.best2pay.net/static/common/img/enigma/purple-arrow-icon.svg');
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: 50% 50%;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.sbp__pick-bank.active::after {
+    transform: rotate(0);
+}
+
+.sbp__banks-overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    overflow-x: hidden;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.sbp__banks-content {
+    position: absolute;
+    min-height: 100vh;
+    top: 50%;
+    left: 0;
+    right: 0;
+    padding: 32px 24px;
+    background-color: #FFFFFF;
+    border-radius: 12px 12px 0px 0px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.2px;
+    color: #806C91;
+    transition: top 0.3s ease-in;
+}
+
+
+.sbp__banks-content.empty {
+    bottom: 0;
+}
+
+.sbp__banks-content.focus {
+    top: 0;
+}
+
+
+.sbp__banks-overlay.open {
+    display: flex;
+}
+
+.sbp__banks-title {
+    position: relative;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #806C91;
+}
+
+.sbp__banks-title::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 4px;
+    left: calc(50% - 32px/2 + 0.5px);
+    top: -20px;
+    background: #EEEBF1;
+    border-radius: 6px;
+}
+
+.sbp__banks-search {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 11px 40px;
+    background-color: #EEEBF1;
+    background-image: url('https://dev3.best2pay.net/static/common/img/enigma/search-icon.svg');
+    background-repeat: no-repeat;
+    background-position: 17px 50%;
+    border: none;
+    border-radius: 12px;
+}
+
+.banks {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,70px);
+    justify-content: center;
+    grid-gap: 1rem;
+}
+
+.bank__item {
+    width: 70px;
+    height: 70px;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 40px 40px;
+    box-shadow: 0px 4px 32px -4px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    cursor: pointer;
+    color: transparent;
+}
+
+.sbp__banks-noresults {
+    display: none;
+    margin-top: 64px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sbp__banks-noresults.show {
+    display: flex;
+}
+
+.sbp__banks-noresults img{
+    margin-bottom: 25px;
+}
+
+.sbp__banks-noresults p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    color: #B3B3B3;
+    text-align: center;
+}
+
+.banks::-webkit-scrollbar {
+    width: 0;
+}
+
+#qr__root {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .input--email.input--sbp .input__label {
+        left: 100px;
+    }
+
+    .sbp__get-email {
+        margin-top: 26px;
+    }
+
+    .sbp__pick-bank {
+        display: block;
+    }
+    .sbp__banks-overlay {
+        max-width: 364px;
+        height: 328px;
+        position: absolute;
+        top: calc(100% - 8px);
+        background: #FFFFFF;
+        border-radius: 16px;
+        box-shadow: 0 4px 32px -4px rgba(0, 0, 0, 0.12);
+    }
+
+    .sbp__banks-content {
+        position: relative;
+        min-height: 0;
+        top: 0;
+        width: 100%;
+        padding: 32px 24px;
+        background-color: #FFFFFF;
+        border-radius: 12px 12px 0px 0px;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.2px;
+        color: #806C91;
+        overflow: hidden;
+    }
+
+    .sbp__banks-title::after {
+        content: none;
+    }
+
+    .sbp__banks-content.focus {
+        top: 0;
+    }
+
+    .banks {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        grid-gap: 0;
+        max-height: calc(4.5 * 56px);
+        overflow: auto;
+        flex-wrap: nowrap;
+    }
+
+    .banks::-webkit-scrollbar {
+        width: 5px;               /* width of the entire scrollbar */
+    }
+
+    .banks::-webkit-scrollbar-track {
+        background: transparent;        /* color of the tracking area */
+    }
+
+    .banks::-webkit-scrollbar-thumb {
+        background-color: #503565;    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 3px solid transparent;  /* creates padding around scroll thumb */
+    }
+
+    .bank__item {
+        height: 56px;
+        padding: 18px 18px 18px 56px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.228571px;
+        color: #806C91;
+        background-position: 0% 50%;
+    }
+
+    .bank__item:hover {
+        text-decoration: underline;
+    }
+
+    #qr__root {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: 280px;
+    }
+
+    #qr__root canvas {
+        width: 200px;
+        height: 200px;
+    }
+
+}

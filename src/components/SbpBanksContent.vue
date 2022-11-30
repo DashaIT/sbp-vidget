@@ -1,8 +1,8 @@
 <template>
     <h3 class="sbp__banks-title">Выберите банк</h3>
-    <sbp-input class="sbp__banks-search"/>
+    <sbp-input class="sbp__banks-search" />
     <sbp-banks-list v-if="banks.length" />
-    <sbp-banks-no-result v-else/>
+    <sbp-banks-no-result v-else />
 </template>
 
 <script>
@@ -12,6 +12,11 @@ export default {
     components: {
         SbpBanksList,
         SbpBanksNoResult,
+    },
+    props: {
+        banks: {
+            type: Array
+        }
     }
 }
 </script>
