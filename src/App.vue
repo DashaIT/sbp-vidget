@@ -2,17 +2,17 @@
     <div class="form-container">
         <div class="payment-method__group">
             <button class="payment-method__button payment-method__button--sbpn" @click="getLink">
-                <img :src="this.sbpTabButtonImg" alt="sbp" />
+                <img :src="sbpTabButtonImg" alt="sbp" />
             </button>
         </div>
-
+        <!-- sbp module -->
         <div class="sbp" id="sbp_root">
             <div class="sbp__qr" id="qr">
                 <sbp-loader id="sbp_loader" />
-                <sbp-qr v-if="this.sbpQRLink" :sbpQRLink="this.sbpQRLink" :size="size" />
+                <sbp-qr v-if="sbpQRLink" :sbpQRLink="sbpQRLink" :size="size" />
             </div>
 
-            <sbp-banks-container :banks="this.banks" />
+            <sbp-banks-container :banks="banks" />
 
             <div class="email">
                 <sbp-input v-if="emailState === 0 || emailState === 2 || emailState === 3" />
@@ -50,8 +50,31 @@ export default {
             sbpQRLink: '',
             size: 200,
             banks: [],
+            searchedBanks: [],
             sbpTabButtonImg: 'https://dev3.best2pay.net/static/common/img/enigma/sbp-logo-text.svg',
-            emailState: 1
+            emailState: 0,
+
+            sbpConfig: {
+                sbpSubmitButtonText: 'Оплатить через',
+                emailLabelText: 'Элeктронная почта',
+                emailToggleText: 'Отправить чек по операции',
+                DESKTOP_ERROR_DOWNLOAD_IMG_URL: '/static/common/img/qr/error-download-qr-desktop.svg',
+                MOBILE_ERROR_DOWNLOAD_IMG_URL: '/static/common/img/qr/error-download-qr-mobile.svg',
+                NOT_OPEN_BANKS_BY_BUTTON_ON_MOBILE: true,
+                CHECK_STATUS_URL: '/webapi/SbpPaymentStatus',
+                qr_options: {
+                    text: "",
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    logo: "/static/common/img/qr/sbp_logo_inner-qr.svg",
+                    logoWidth: 60,
+                    logoHeight: 48,
+                    logoBackgroundColor: '#ffffff',
+                    logoBackgroundTransparent: false,
+                }
+            }
         }
     },
     methods: {
@@ -94,6 +117,8 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    width: 50%;
+    margin: auto;
 }
 
 .amount-block {

@@ -1,16 +1,13 @@
 <template>
-    <li :data-bank="bank.schema" 
-        class="bank__item"
-        v:style='background-image: bank.logoURL'
-        >
-        {{bank.bankName}}
+    <li :data-bank="bank.schema" class="bank__item" :style="{ 'background-image': `url(${bank?.logoURL})` }">
+        {{ bank.bankName }}
     </li>
 </template>
 
 <script>
-export default {    
+export default {
     props: {
-        post: {
+        bank: {
             type: Object,
             required: true,
         }

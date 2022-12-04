@@ -1,7 +1,7 @@
 <template>
     <h3 class="sbp__banks-title">Выберите банк</h3>
-    <sbp-input class="sbp__banks-search" />
-    <sbp-banks-list v-if="banks.length" />
+    <sbp-input class="sbp__banks-search" v-model="searchQuery" />
+    <sbp-banks-list :banks="searchedBanks" v-if="banks.length" />
     <sbp-banks-no-result v-else />
 </template>
 
@@ -13,9 +13,20 @@ export default {
         SbpBanksList,
         SbpBanksNoResult,
     },
+    data() {
+        return {
+            searchQuery: '',
+        }
+    },
     props: {
         banks: {
             type: Array
+        }
+    },
+    computed: {
+
+        searchedBanks() {
+            return this.banks.filter(bank => bank.bankName.toLowerCase().includes(this.searchQuery.toLowerCase()))
         }
     }
 }

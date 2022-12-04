@@ -1,9 +1,9 @@
 <template>
     <div class="sbp__banks container__inner">
-        <sbp-button class="sbp__pick-bank _placeholder">
+        <sbp-button type="button" class="sbp__pick-bank _placeholder" @click="openSbpBanksHandler">
             Выбрать банк для открытия QR
         </sbp-button>
-        <div class="sbp__banks-overlay">
+        <div class="sbp__banks-overlay" v-if="isOpenSbpBanks">
             <sbp-banks-content :banks="banks" />
         </div>
     </div>
@@ -14,9 +14,19 @@
 import SbpBanksContent from '@/components/SbpBanksContent';
 export default {
     components: { SbpBanksContent },
+    data() {
+        return {
+            isOpenSbpBanks: false,
+        }
+    },
     props: {
         banks: {
             type: Array
+        }
+    },
+    methods: {
+        openSbpBanksHandler() {
+            this.isOpenSbpBanks = !this.isOpenSbpBanks
         }
     }
 }

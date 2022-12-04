@@ -1,5 +1,5 @@
 <template>
-    <button type="button">
+    <button :type="type">
         <slot></slot>
     </button>
 </template>
@@ -7,6 +7,11 @@
 <script>
 export default {
     name: 'sbp-button',
+    props: {
+        type: {
+            type: String
+        }
+    }
 }
 </script>
 
